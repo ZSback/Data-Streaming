@@ -7,6 +7,7 @@ import multiprocessing
 import re
 import socket
 import time
+import datetime
 
 import requests
 from bs4 import BeautifulSoup
@@ -19,7 +20,9 @@ client.connect((host, port))
 danmu_path = re.compile(b'txt@=(.+?)/cid@')
 uid_path = re.compile(b'uid@=(.+?)/nn@')
 nickname_path = re.compile(b'nn@=(.+?)/txt@')
-level_path = re.compile(b'level@=([1-9][0-9]?)/sahf')
+level_path = re.compile(b'.*?/level@=(.*?)/')
+# pattern = re.compile(b'type@=chatmsg/.+?/nn@=(.+?)/txt@=(.+?)/.+?/level@=(.+?)/')
+
 
 def sendmsg(msgstr):
     msg = msgstr.encode('utf-8')
@@ -45,26 +48,33 @@ def start(roomid):
     # print('---------------欢迎连接到{}的直播间---------------'.format(get_name(roomid)))
     print('---------------欢迎连接到某一个直播间---------------')
     while True:
-        data = client.recv(512)
+        data = client.recv(1024)
+        print('-' * 100)
         uid_more = uid_path.findall(data)
-        nickname_more = nickname_path.findall(data)
         level_more = level_path.findall(data)
         danmu_more = danmu_path.findall(data)
         if not data:
             break
         else:
             for i in range(0, len(danmu_more)):
-                with open('danmutxt', 'a') as fo:
+                with open('danmutxt2', 'a') as fo:
                     try:
-                        print("danmu: " + danmu_more[i].decode(encoding='utf-8'))
-                        print("user id: " + uid_more[i].decode(encoding='utf-8'))
-                        # print("nick name: " + nickname_more[i].decode(encoding='utf-8'))
-                        # print("level: " + level_more[i].decode(encoding='utf-8') + "\n")
-                        print("time stamp" + "\n")
+                        danmu = danmu_more[i].decode(encoding='utf-8')
+                        uid = uid_more[i].decode(encoding='utf-8')
+                        level = level_more[i].decode(encoding='utf-8')
+                        print("danmu: " + danmu)
+                        print("user id: " + uid)
+                        print("level: " + level + "\n")
 
-                        txt = danmu_more[i].decode(encoding='utf-8') + '\n'
+                        # write to files
+                        txt = str(datetime.datetime.now()) + "|   |"
+                        txt += danmu + "|   |"
+                        txt += uid + "|   |"
+                        txt += level + '\n'
                         fo.writelines(txt)
-                    except:
+
+                    except Exception as e:
+                        print(e)
                         print('出错了\n')
 
 
