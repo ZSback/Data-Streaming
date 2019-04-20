@@ -175,7 +175,7 @@ sc = spark.sparkContext
 sqlContext = SQLContext(sc)
 test_num = 1
 file_name = "epa-http"
-Directory = "Data"
+Directory = "/Data"
 
 
 
