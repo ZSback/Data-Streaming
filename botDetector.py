@@ -175,6 +175,7 @@ sc = spark.sparkContext
 sqlContext = SQLContext(sc)
 test_num = 1
 file_name = "epa-http"
+Directory = "Data"
 
 
 
@@ -184,7 +185,9 @@ while True:
 
     test_num += 1
     # TODO: here the code is wrong.
-    op_fn = file_name + str(test_num) + ".txt"
+    # op_fn = file_name + str(test_num) + ".txt"
+
+    textDataRDD = sc.textFileStream(Directory)
 
     textDataRDD = sc.textFile(op_fn)
     # textDataRDD.take(5)   # Display RDD value
