@@ -55,6 +55,7 @@ uid_info_2 = {"8977601":
 
 def filter_begin(row):
     uid_info_1 = {}
+    uid_info_2 = {} # will lead some loss
     current_barrage = {}
 
     uid = row[1]
@@ -87,16 +88,17 @@ def filter_level(row):
     """
     uid = row[1]
     level = row[2]
-
+    if not uid_info_1.get(uid, None):
+        uid_info_1[uid] = {}
     if uid_info_1[uid].get("count", None):
         uid_info_1[uid]["count"] += 1
     else:
         uid_info_1[uid]["count"] = 1
 
     if not uid_info_1[uid].get("level", None):
-        uid_info_1[uid]["level"] = level
+        uid_info_1[uid]["level"] = int(level)
 
-    if level > 2:
+    if int(level) > 2:
         return False
     return True
 
@@ -105,6 +107,8 @@ def store_brg_time(row):
     time = row[0]
     uid = row[1]
     brg = row[3]  # barrage
+    if not uid_info_2.get(uid, None):
+        uid_info_2[uid] = {}
     if not uid_info_2[uid].get("time", None):
         uid_info_2[uid]["time"] = [time]
     else:
@@ -177,7 +181,7 @@ def update_info_bot(row):
 # --------------------------------------------------------------------------
 spark = SparkSession.builder.getOrCreate()
 # sc = pyspark.SparkContext("local", "1s")
-sc = spark
+sc = spark.sparkContext
 test_num = 1
 Directory = "Data"
 # change the batch interval from 1 to 10
