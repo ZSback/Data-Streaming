@@ -1,78 +1,59 @@
-# Part 3
-# !/usr/bin/env python
-# coding: utf-8
 from pyspark.sql import SparkSession, SQLContext
+from pyspark.streaming import StreamingContext
 import pyspark
 import datetime
 import json
 import time
 
-
-# TODO: we should tune the time
-time_threshhold = datetime.timedelta(seconds=11)
-barrage_threshold = 5
-'''
-barrage = {"barrage#1": '# of barrage#1'
-           }
-'''
-barrage = {}  # do not clear in new loop, dict #1
-'''
-barrage = {"uid#1": True
-           }
-'''
-bot_uid = {}  # do not clear in new loop, dict #2
-
-current_barrage = {}
-
-uid_info_1 = {}  # clear in every new loop
-uid_info_2 = {}  # clear in every new loop
-'''
-uid_info_1 = {"8977601":
-                {  "count":2,
-                   "level":12
-                },
-            "6544213":
-                {
-                   ...
-                },
-                 ...
-            }
-'''
-'''
-uid_info_2 = {"8977601":
-                {  "time":["12:21:31", "12:21:59"],
-                   "barrage":["barrage #1", "barrage #2"]
-                },
-            "6544213":
-                {
-                   ...
-                },
-                 ...
-            }
-'''
+# --------------------------------------------------------------------------
+# DStream initialization
+# --------------------------------------------------------------------------
+spark = SparkSession.builder.getOrCreate()
+# sc = pyspark.SparkContext("local", "1s")
+sc = spark.sparkContext
+test_num = 1
+Directory = "Data"
+# change the batch interval from 1 to 10
+ssc = StreamingContext(sc, 8)
+ssc.checkpoint("checkpoint")
 
 
-def filter_begin(row):
+# --------------------------------------------------------------------------
+# Function definition
+# --------------------------------------------------------------------------
+def update_cur_bar(rdd):
+    c_r = rdd.collect()
+    global current_barrage
+    current_barrage = {}
+    current_barrage = dict(c_r)
+
+
+def find_real_bot(row):
     uid = row[1]
-    brg = row[3]  # barrage
-    # get current barrage
-    # Exception: true audience may send two meaningless barrage in a short time by mistake and then send a 6666
-    # before a 666 mass, it will be considered as a bot.
-    if current_barrage.get(brg, None):
-        current_barrage[brg] += 1
-    else:
-        current_barrage[brg] = 1
-
     if bot_uid:
         uid_is_bot = bot_uid.get(uid, None)
         if uid_is_bot:
-            # if it is a bot, it will not be suspect. So we don't need further filter.
-            if barrage.get(brg, None):
-                barrage[brg] += 1
-            else:
-                barrage[brg] = 1
+            return True
+    return False
+
+
+def find_suspect_bot(row):
+    uid = row[1]
+    if bot_uid:
+        uid_is_bot = bot_uid.get(uid, None)
+        if uid_is_bot:
             return False
     return True
+
+
+def update_bar(rdd):
+    c_r = rdd.collect()
+    global barrage
+    for r in c_r:
+        if barrage.get(r[0], 0):
+            barrage[r[0]] += r[1]
+        else:
+            barrage[r[0]] = r[1]
 
 
 def filter_level(row):
@@ -81,121 +62,189 @@ def filter_level(row):
     filter out high level user
     :return: True - suspect bot
     """
-    uid = row[1]
     level = row[2]
-
-    if uid_info_1[uid].get("count", None):
-        uid_info_1[uid]["count"] += 1
-    else:
-        uid_info_1[uid]["count"] = 1
-
-    if not uid_info_1[uid].get("level", None):
-        uid_info_1[uid]["level"] = level
-
-    if level > 2:
+    if int(level) > 2:
         return False
     return True
 
 
-def store_brg_time(row):
-    time = row[0]
-    uid = row[1]
-    brg = row[3]  # barrage
-    if not uid_info_2[uid].get("time", None):
-        uid_info_2[uid]["time"] = [time]
-    else:
-        if len(uid_info_2[uid]["time"]) >= 3:
-            uid_info_2[uid]["time"].remove(uid_info_2[uid]["time"][0])
-            uid_info_2[uid]["time"].append(time)
-        else:
-            uid_info_2[uid]["time"].append(time)
-
-    if not uid_info_2[uid].get("barrage", None):
-        uid_info_2[uid]["barrage"] = [brg]
-    else:
-        if len(uid_info_2[uid]["barrage"]) >= 3:
-            uid_info_2[uid]["barrage"].remove(uid_info_2[uid]["barrage"][0])
-            uid_info_2[uid]["barrage"].append(brg)
-        else:
-            uid_info_2[uid]["barrage"].append(brg)
+def add_barrage_score(row):
+    if row[3] in barrage:
+        row[4] += barrage_score
     return row
 
 
-def filter_high_frequency(row):
-    """
-    :return: True - suspect bot
-    """
-    time = row[0]
+def generate_idscore_ttbb(row):
+    timestmp = row[0]
     uid = row[1]
-    brg = row[3]  # barrage
-    if len(uid_info_2[uid]["time"]) >= 3:
-        # TODO: bug here, the fourth uid comes then filter, when the third comes, determine if there is two, if there are two then we should
-        #        get the interval and determine if it is high frequency.
-        # convert to datetime
-        end = datetime.datetime.strptime(uid_info_2[uid]["time"][2], "%Y-%m-%d %H:%M:%S")
-        begin = datetime.datetime.strptime(uid_info_2[uid]["time"][0], "%Y-%m-%d %H:%M:%S")
-        interval = end - begin
-        if interval < time_threshhold:
-            return True
+    brg = row[3]
+    score = row[4]
+    key = uid
+    value = [[timestmp, brg, score]]
+    result = (key, value)
+    return result
+
+
+def score_normalizer(row):
+    uid = row[0]
+    t_b_s_pairs = row[1]
+
+    scores = [int(p[2]) for p in t_b_s_pairs]
+    if scores:
+        max_score = str(max(scores))
+
+    t_b_paris = [[t_b[0], t_b[1]] for t_b in t_b_s_pairs]
+    result = (uid + SPACE_CHARACTER + max_score, t_b_paris)
+    return result
+
+
+def interval_filter(row):
+    uid_score_pairs = row[0]
+    t_b_pairs = row[1]
+
+    # create the time sequence for a user
+    time_seq = [datetime.datetime.strptime(t_b[0], "%Y-%m-%d %H:%M:%S") for t_b in t_b_pairs]
+    time_seq.sort()
+
+    if len(time_seq) >= 3:
+        # TODO: WE CAN TUNE HERE
+        start = time_seq[-3]
+        end = time_seq[-1]
+        if abs(end - start) < time_threshold:
+            uid = uid_score_pairs.split(SPACE_CHARACTER)[0]
+            score = uid_score_pairs.split(SPACE_CHARACTER)[1]
+
+            # we add score if it is a bot
+            score = int(score) + small_interval_score
+            score = str(score)
+
+            new_k = SPACE_CHARACTER.join([uid, score])
+            result = (new_k, t_b_pairs)
+            return result
+    return row
+
+
+def current_barrage_filter(row):
+    uid_score_pairs = row[0]
+    t_b_pairs = row[1]
+    uid = uid_score_pairs.split(SPACE_CHARACTER)[0]
+    score = uid_score_pairs.split(SPACE_CHARACTER)[1]
+
+    for t_b in t_b_pairs:
+        if t_b[1] in current_barrage:
+            if current_barrage[t_b[1]] > barrage_threshold:
+                score = int(score) - current_barrage_bonus
+                if barrage.get(t_b[1], None):
+                    barrage.pop(t_b[1])
+                continue
+        # we add score if it is a bot
+        score = int(score) + current_barrage_score
+
+    result = [uid, int(score), t_b_pairs]
+    return result
+
+
+def high_score(row):
+    score = row[1]
+    if score >= bot_score_threshold:
+        return True
     return False
 
 
-def store_suspect_brg(row):
-    """
-    :return: those who is not bot
-    """
-    # TODO: don't understand here.
-    uid = row[1]
-    # barrage  = {}    do not clear in new loop, dict #1
-    for brg in uid_info_2[uid]["barrage"]:
-        if barrage.get(brg, None):
-            barrage[brg] += 1
-        else:
-            barrage[brg] = 1
-        if barrage[brg] > 1:
-            if current_barrage[brg] < barrage_threshold:
-                # this means that the user is a bot
-                update_info_bot(row)
-            else:
-                return row
-
-
-def update_info_bot(row):
-    # according to the decision above, add new bot or not.
-    # TODO: here it does not make sense.
-    uid = row[1]
-    if bot_uid.get(uid, None):
-        bot_uid[uid] += 1
-    else:
+def update_uid_barrage(rdd):
+    c_r = rdd.collect()
+    global barrage
+    global bot_uid
+    for r in c_r:
+        uid = r[0]
         bot_uid[uid] = 1
+        for t_b in r[2]:
+            if barrage.get(t_b[1], 0):
+                barrage[t_b[1]] += r[1]
+            else:
+                barrage[t_b[1]] = 1
 
 
-spark = SparkSession.builder.getOrCreate()
-sc = spark.sparkContext
-sqlContext = SQLContext(sc)
-test_num = 1
-file_name = "epa-http"
-Directory = "/Data"
+# --------------------------------------------------------------------------
+# Variables initialization
+# --------------------------------------------------------------------------
+current_barrage = {}
+barrage = {}
+bot_uid = {}
+
+low_level_score = 10
+barrage_score = 10
+small_interval_score = 10
+current_barrage_score = 10
+current_barrage_bonus = 50
+
+time_threshold = datetime.timedelta(seconds=11)
+barrage_threshold = 8
+bot_score_threshold = 30
+
+SPACE_CHARACTER = "|   |"
+
+
+# --------------------------------------------------------------------------
+# DStream processing
+# --------------------------------------------------------------------------
+textDataRDD = ssc.textFileStream(Directory)
+
+# Get current barrage
+kvPair_3 = textDataRDD.map(lambda a: (a.split(SPACE_CHARACTER)))
+kvPair_3.map(lambda a: (a[3], 1)).reduceByKey(lambda a, b: a+b).foreachRDD(update_cur_bar)
+
+
+# real bot and suspect bot
+real_bot = kvPair_3.filter(find_real_bot)
+suspect_bot = kvPair_3.filter(find_suspect_bot)
+# suspect_bot.pprint()
+
+
+# update barrage
+bot_bar = real_bot.map(lambda a: (a[3], 1)).reduceByKey(lambda a, b: a+b).foreachRDD(update_bar)
+
+
+# Filter out low level and add score
+suspect_bot = suspect_bot.filter(filter_level).map(lambda a: a+[low_level_score])
+# suspect_bot.pprint()
+
+
+# add barrage score
+suspect_bot = suspect_bot.map(add_barrage_score)
+# suspect_bot.pprint()
+
+
+# Map for reduceByKey
+suspect_bot = suspect_bot.map(generate_idscore_ttbb).reduceByKey(lambda a, b: a+b)
+# suspect_bot.pprint()
+
+
+# Find the max score and reformat
+group_after_normalize = suspect_bot.map(score_normalizer)
+# group_after_normalize.pprint()
+
+group_after_intervalfilter = group_after_normalize.map(interval_filter)
+# group_after_intervalfilter.pprint()
+
+
+group_after_curbrgfilter = group_after_intervalfilter.map(current_barrage_filter)
+# group_after_curbrgfilter.pprint()
+
+detected_bot = group_after_curbrgfilter.filter(high_score)
+detected_bot.pprint()
+
+# update bot_uid and barrage
+detected_bot.foreachRDD(update_uid_barrage)
 
 
 
-while True:
-    uid_info_1 = {}
-    current_barrage = {}
+# ---------------------------------------------------------------------------------------------------------------
+ssc.start()
+ssc.awaitTerminationOrTimeout(48)
+ssc.stop()
 
-    test_num += 1
-    # TODO: here the code is wrong.
-    # op_fn = file_name + str(test_num) + ".txt"
-
-    textDataRDD = sc.textFileStream(Directory)
-
-    textDataRDD = sc.textFile(op_fn)
-    # textDataRDD.take(5)   # Display RDD value
-    kvPair_3 = textDataRDD.map(lambda a: a.split("|   |"))
-    # kvPair_3 = kvPair_3.filter(lambda a: a[-1].isdigit())
-    kvPair_3 = kvPair_3.filter(filter_begin)
-    kvPair_3 = kvPair_3.filter(filter_level)
-    kvPair_3 = kvPair_3.map(store_brg_time)
-    kvPair_3 = kvPair_3.filter(filter_high_frequency)
-    kvPair_3 = kvPair_3.map(store_suspect_brg)
-
+f = open('result.txt', 'w')
+f.write(json.dumps(bot_uid, indent=2))
+f.write(json.dumps(barrage, indent=2))
+f.close()

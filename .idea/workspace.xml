@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c695f529-232c-4ae6-99b5-265b30060227" name="Default Changelist" comment="" />
+    <list default="true" id="c695f529-232c-4ae6-99b5-265b30060227" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/words.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/generate_word.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/test_dict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/updateByKey.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DouyuBarrageDownload.py" beforeDir="false" afterPath="$PROJECT_DIR$/bar_generate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/True.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/True_people_data_ generate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/botDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/botDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botDetectorv2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/danmutxt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/danmutxt2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/danmutxt2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/generate_bot_chat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/generate_user_chat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/thread_test.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,48 +27,58 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/generate_user_chat.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/generate_bot_chat.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#28#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DouyuBarrageDownload.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="73" selection-start-line="17" selection-start-column="23" selection-end-line="74" />
-              <folding>
-                <element signature="e#127#149#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/botDetector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-404">
-              <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
+            <state relative-caret-position="-1512">
+              <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
               <folding>
-                <element signature="e#48#96#0" expanded="true" />
+                <element signature="e#780#883#0" />
+                <element signature="e#914#1050#0" />
+                <element signature="e#1084#1220#0" />
+                <element signature="e#1248#1418#0" />
+                <element signature="e#1313#1418#0" />
+                <element signature="e#1448#1635#0" />
+                <element signature="e#1670#1738#0" />
+                <element signature="e#1777#1942#0" />
+                <element signature="e#1976#2249#0" />
+                <element signature="e#2282#3036#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/result.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bar_generate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1059" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -66,15 +94,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fo</find>
-      <find>众生</find>
-      <find>冲冲</find>
-      <find>冲冲冲冲冲冲冲</find>
-      <find>thread 1</find>
-      <find>28828938</find>
-      <find>pyspark</find>
-      <find>info_1</find>
+      <find>test_num</find>
+      <find>findRea</find>
+      <find>-</find>
+      <find>update_cur_bar</find>
+      <find>'-'</find>
+      <find>2019-04-22 14:40:36</find>
+      <find>c257116b-7fca-4f61-92d8-df0ce3b01ab4</find>
+      <find>uid_info_2</find>
+      <find>2019-04-22 14:45:47</find>
+      <find>2019-04-22 14:45:48</find>
+      <find>user info 2</find>
+      <find>datetime</find>
+      <find>'a1ff5de9-9b6c-466e-afbf-3f0c677ab2b5'</find>
+      <find>collect_</find>
+      <find>map</find>
+      <find>gene</find>
+      <find>reduceby</find>
+      <find>interval</find>
+      <find>10</find>
+      <find>small_interval_score</find>
+      <find>low_level_score</find>
+      <find>barrage_score</find>
+      <find>threshold</find>
+      <find>th</find>
+      <find>add_barrage</find>
+      <find>add</find>
+      <find>current_barrage_filter</find>
+      <find>score</find>
       <find>current</find>
+      <find>current_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,11 +136,22 @@
         <option value="$PROJECT_DIR$/DouyuBarrageDownload.py" />
         <option value="$PROJECT_DIR$/test/danmutxt2" />
         <option value="$PROJECT_DIR$/test/thread_test.py" />
-        <option value="$PROJECT_DIR$/test/test.py" />
-        <option value="$PROJECT_DIR$/test/generate_user_chat.py" />
-        <option value="$PROJECT_DIR$/test/danmutxt2.txt" />
         <option value="$PROJECT_DIR$/test/generate_bot_chat.py" />
         <option value="$PROJECT_DIR$/botDetector.py" />
+        <option value="$PROJECT_DIR$/test/generate_user_chat.py" />
+        <option value="$PROJECT_DIR$/example/generate_word.py" />
+        <option value="$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d1c8d0317eef9a60b139fa26b151dffb/Message/MessageTemp/3fa8469fb9255552babb7b98dba6da12/File/botDetectorv3.py" />
+        <option value="$PROJECT_DIR$/botDetectorv2.py" />
+        <option value="$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d1c8d0317eef9a60b139fa26b151dffb/Message/MessageTemp/3fa8469fb9255552babb7b98dba6da12/File/botDetectorv3(1).py" />
+        <option value="$PROJECT_DIR$/example/test_dict.py" />
+        <option value="$PROJECT_DIR$/example/updateByKey.py" />
+        <option value="$PROJECT_DIR$/Data/1" />
+        <option value="$PROJECT_DIR$/Data/words.txt" />
+        <option value="$PROJECT_DIR$/botDetectorv3.py" />
+        <option value="$PROJECT_DIR$/test/test2.py" />
+        <option value="$PROJECT_DIR$/botDetectorv6.py" />
+        <option value="$PROJECT_DIR$/test/test.py" />
+        <option value="$PROJECT_DIR$/test/danmutxt2.txt" />
       </list>
     </option>
   </component>
@@ -105,7 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,16 +175,18 @@
             <path>
               <item name="Data-Streaming" type="b2602c69:ProjectViewProjectNode" />
               <item name="Data-Streaming" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Data-Streaming" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Data-Streaming" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -149,8 +210,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.generate_bot_chat">
-    <configuration name="DouyuBarrageDownload" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.generate_user_chat">
+    <configuration name="botDetectorv3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Data-Streaming" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -162,7 +223,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DouyuBarrageDownload.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botDetectorv3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,7 +232,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="generate_bot_chat" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="botDetectorv6" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Data-Streaming" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botDetector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_user_chat" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Data-Streaming" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -183,7 +265,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/generate_bot_chat.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,7 +274,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="generate_word" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Data-Streaming" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/example" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example/generate_word.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Data-Streaming" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -204,28 +307,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/generate_user_chat.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="thread_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Data-Streaming" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/thread_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -236,10 +318,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.generate_bot_chat" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.thread_test" />
-        <item itemvalue="Python.DouyuBarrageDownload" />
+        <item itemvalue="Python.generate_user_chat" />
+        <item itemvalue="Python.botDetectorv6" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.botDetectorv3" />
+        <item itemvalue="Python.generate_word" />
       </list>
     </recent_temporary>
   </component>
@@ -256,21 +339,29 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32907802" />
@@ -320,83 +411,223 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/danmutxt2" />
-    <entry file="file://$PROJECT_DIR$/danmutxt">
+    <entry file="file://$PROJECT_DIR$/Data/test45.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test46.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test47.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test49.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test48.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test51.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test50.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test52.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test53.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test54.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test25.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test23.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test22.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test18.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test10.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test8.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test4.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test3.txt" />
+    <entry file="file://$PROJECT_DIR$/Data/test14.txt" />
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d1c8d0317eef9a60b139fa26b151dffb/Message/MessageTemp/3fa8469fb9255552babb7b98dba6da12/File/botDetectorv3(1).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="225" column="44" selection-start-line="225" selection-start-column="44" selection-end-line="225" selection-end-column="49" />
+        <state relative-caret-position="190">
+          <caret line="164" column="12" selection-end-line="223" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/danmutxt2">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyspark/streaming/dstream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="937" column="38" selection-start-line="937" selection-start-column="31" selection-end-line="937" selection-end-column="38" />
+        <state relative-caret-position="149">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d1c8d0317eef9a60b139fa26b151dffb/Message/MessageTemp/3fa8469fb9255552babb7b98dba6da12/File/botDetectorv3(2).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="38" selection-end-line="229" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/thread_test.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/py4j/protocol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="3232">
+          <caret line="327" selection-start-line="327" selection-end-line="327" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/generate_word.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/danmutxt2.txt">
-      <provider editor-type-id="LargeFileEditor">
-        <state relative-caret-position="-241472" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/example/test_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="94" lean-forward="true" selection-start-line="89" selection-start-column="94" selection-end-line="89" selection-end-column="94" />
+        <state relative-caret-position="78">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <element signature="e#1284#1321#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DouyuBarrageDownload.py">
+    <entry file="file://$PROJECT_DIR$/example/updateByKey.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="73" selection-start-line="17" selection-start-column="23" selection-end-line="74" />
+        <state relative-caret-position="260">
+          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
           <folding>
-            <element signature="e#127#149#0" expanded="true" />
+            <element signature="e#1284#1321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyspark/rdd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="1944" selection-start-line="1944" selection-end-line="1944" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/1" />
+    <entry file="file://$PROJECT_DIR$/Data/test11.txt" />
+    <entry file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/d1c8d0317eef9a60b139fa26b151dffb/Message/MessageTemp/1ad8ff528afc8ccd41552d38ca4c7eda/File/botDetectorv6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/_strptime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="576" selection-start-line="576" selection-end-line="576" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="68" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botDetectorv2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="142" column="30" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/botDetector.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botDetectorv3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-404">
-          <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
+        <state relative-caret-position="523">
+          <caret line="316" column="56" selection-start-line="316" selection-start-column="56" selection-end-line="316" selection-end-column="56" />
           <folding>
             <element signature="e#48#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/generate_bot_chat.py">
+    <entry file="file://$PROJECT_DIR$/Data/test5.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/test13.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/test26.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/True_people_data_ generate.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/True.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="-384" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
           <folding>
-            <element signature="e#28#56#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/generate_user_chat.py">
+    <entry file="file://$PROJECT_DIR$/test/test2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        <state relative-caret-position="183">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/generate_bot_chat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-384" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/danmutxt2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/thread_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/danmutxt2">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/danmutxt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bar_generate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1059" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botDetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1512">
+          <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+          <folding>
+            <element signature="e#780#883#0" />
+            <element signature="e#914#1050#0" />
+            <element signature="e#1084#1220#0" />
+            <element signature="e#1248#1418#0" />
+            <element signature="e#1313#1418#0" />
+            <element signature="e#1448#1635#0" />
+            <element signature="e#1670#1738#0" />
+            <element signature="e#1777#1942#0" />
+            <element signature="e#1976#2249#0" />
+            <element signature="e#2282#3036#0" />
+          </folding>
         </state>
       </provider>
     </entry>
