@@ -13,9 +13,8 @@ import requests
 from bs4 import BeautifulSoup
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = socket.gethostbyname("openbarrage.douyutv.com")
 port = 8601
-client.connect((host, port))
+client.connect(('119.96.201.28', port))
 
 danmu_path = re.compile(b'txt@=(.+?)/cid@')
 uid_path = re.compile(b'uid@=(.+?)/nn@')
