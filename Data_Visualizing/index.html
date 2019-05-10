@@ -1,0 +1,40 @@
+<DOCTYPE=<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Real-time-analytics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="navbar"><span>Real-time Chart with Plotly.js</span></div>
+    <div id="tester" style="width:600px;height:250px;"></div>
+    <div class="wrapper">
+
+        <div id="chart"></div>
+
+        <script>
+            Plotly.plot('chart', [{
+                x:[new Date()],
+                y:[2],
+                type:'line'
+            }]);
+            
+            setInterval(function() {
+                        var time = new Date();
+                        var update = {
+                            x:  [[time]],
+                            y: [[Math.random()]]
+                         }
+                    Plotly.extendTraces('chart', update, [0])}
+                    , 100)
+        </script>
+    </div>
+    
+</body>
+</html>>
+
+</DOCTYPE>
